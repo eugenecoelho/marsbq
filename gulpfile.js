@@ -8,6 +8,7 @@ var handlebars = require('gulp-compile-handlebars');
 var rename = require('gulp-rename');
 var menu = require('./menu.json');
 var less = require('gulp-less');
+var autoprefixer = require('gulp-autoprefixer');
 
 
 gulp.task('templates', function(){
@@ -48,6 +49,7 @@ gulp.task('styles', function() {
  gulp.src(['src/styles/main.less'])
   .pipe(sourcemaps.init())
   .pipe(less())
+  .pipe(autoprefixer())
   .pipe(minifyCss())
   .pipe(sourcemaps.write())
   .pipe(gulp.dest('dist/styles'))
